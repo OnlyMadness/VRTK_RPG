@@ -276,6 +276,7 @@ namespace VRTK
         {
             Vector3 newDownPosition = downPosition;
             Vector3 newJointPosition = jointPosition;
+          //  Debug.Log("Exit1");
 
             if (collisionCheckFrequency > 0 && actualTracer != null)
             {

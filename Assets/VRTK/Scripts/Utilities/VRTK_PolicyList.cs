@@ -4,6 +4,7 @@ namespace VRTK
     using UnityEngine;
     using System.Collections.Generic;
 
+
     /// <summary>
     /// The Policy List allows to create a list of either tag names, script names or layer names that can be checked against to see if another operation is permitted.
     /// </summary>
@@ -72,12 +73,16 @@ namespace VRTK
             }
         }
 
+        //public GameObject Controll = GameObject.Find("GameControll");
+
+
         /// <summary>
         /// The Check method is used to check if a game object should be ignored based on a given string or policy list.
         /// </summary>
         /// <param name="obj">The game object to check.</param>
         /// <param name="list">The policy list to use for checking.</param>
         /// <returns>Returns true of the given game object matches the policy list or given string logic.</returns>
+
         public static bool Check(GameObject obj, VRTK_PolicyList list)
         {
             if (list != null)
@@ -103,10 +108,22 @@ namespace VRTK
         {
             if (returnState)
             {
+                if (obj.tag == "Zombi_Head")
+                {
+                    Debug.Log("ON");
+                    //Controll.SetActive(false);
+                     
+
+                }
+                else
+                {
+                    Debug.Log("OFF");
+                }
                 return identifiers.Contains(obj.tag);
             }
             else
             {
+                
                 return !identifiers.Contains(obj.tag);
             }
         }
