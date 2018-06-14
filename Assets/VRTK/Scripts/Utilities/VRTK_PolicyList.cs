@@ -53,6 +53,9 @@ namespace VRTK
         [Tooltip("A list of identifiers to check for against the given check type (either tag or script).")]
         public List<string> identifiers = new List<string>() { "" };
 
+        
+        //GameController Controll = new GameController();
+        
         /// <summary>
         /// The Find method performs the set operation to determine if the given game object contains one of the identifiers on the set check type.
         /// </summary>
@@ -104,26 +107,43 @@ namespace VRTK
             return !returnState;
         }
 
+       //public GameObject[] contr;
+
         protected virtual bool TagCheck(GameObject obj, bool returnState)
         {
             if (returnState)
             {
-                if (obj.tag == "Zombi_Head")
-                {
-                    Debug.Log("ON");
-                    //Controll.SetActive(false);
-                     
-
-                }
-                else
-                {
-                    Debug.Log("OFF");
-                }
+                //if (obj.tag == "Zombi_Head")
+                //{
+                //    Debug.Log("Head");
+                //    //GameObject[] contr = GameObject.FindGameObjectsWithTag("InfoCanvas");
+                   
+                //    //Controll.SetActive(false);
+                //    //Controll.TriggerCanvas();
+                    
+                //    //Controll.TriggerCanvas();
+                   
+                //}
+                //if (obj.tag == "Zombi_Body")
+                //{
+                //    Debug.Log("Body");
+                //    //Controll.SetActive(false);                          
+                //}
+                //if (obj.tag == "Zombi_Limbs")
+                //{
+                //    Debug.Log("Limb");
+                //    //Controll.SetActive(false);    
+                //   // GameController.Canvas.GetComponent<Canvas>().enabled = false;
+                //    GameController.Limbs = true;
+                //        //.SetActive(false);
+                //    // .TriggerCanvas();
+                //}
+               
                 return identifiers.Contains(obj.tag);
             }
             else
             {
-                
+                //GameController.Limbs = false;
                 return !identifiers.Contains(obj.tag);
             }
         }
