@@ -9,15 +9,19 @@ namespace VRTK.GrabAttachMechanics
     /// <example>
     /// `VRTK/Examples/005_Controller_BasicObjectGrabbing` demonstrates this grab attach mechanic all of the grabbable objects in the scene.
     /// </example>
+    /// 
+    
     [AddComponentMenu("VRTK/Scripts/Interactions/Grab Attach Mechanics/VRTK_FixedJointGrabAttach")]
     public class VRTK_FixedJointGrabAttach : VRTK_BaseJointGrabAttach
     {
         [Tooltip("Maximum force the joint can withstand before breaking. Infinity means unbreakable.")]
         public float breakForce = 1500f;
-
         protected override void CreateJoint(GameObject obj)
         {
             givenJoint = obj.AddComponent<FixedJoint>();
+            obj.transform.rotation = GameObject.Find("[VRTK][AUTOGEN][RightController][BasePointerRenderer_Origin_Smoothed]").transform.rotation;   // Позиция в руке     
+                                                                                                                                                 
+            obj.transform.Translate(Vector3.down/21);
             givenJoint.breakForce = (grabbedObjectScript.IsDroppable() ? breakForce : Mathf.Infinity);
             base.CreateJoint(obj);
         }

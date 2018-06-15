@@ -11,12 +11,11 @@
 
         public override void StartUsing(VRTK_InteractUse usingObject)
         {
-            base.StartUsing(usingObject);
+            base.StartUsing(usingObject);  
+            Debug.Log(gameObject.name);
+            Gun_Controller.Shoot = true;   
             
-                
-                    Debug.Log(gameObject.name);
-                
-                //Canvas.GetComponent<Canvas>().enabled = false;
+            //Canvas.GetComponent<Canvas>().enabled = false;
             
             //spinSpeed = 360f;
             //Canvas.GetComponent<Canvas>().enabled = false;
@@ -25,11 +24,17 @@
         public override void StopUsing(VRTK_InteractUse usingObject)
         {
             base.StopUsing(usingObject);
-
+            Gun_Controller.Shoot = false;
             //spinSpeed = 0f;
             //Canvas.GetComponent<Canvas>().enabled = true;
         }
-
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    if(other.tag == "Bullet_gun")
+        //    {
+        //        Enemy.Win = true; 
+        //    }
+        //}
         //protected void Start()
         //{
         //    //rotator = transform.Find("Cube");

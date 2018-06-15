@@ -10,6 +10,7 @@ TagManager:
   - Zombi_Body
   - Zombi_Limbs
   - InfoCanvas
+  - Bullet_gun
   layers:
   - Default
   - TransparentFX
