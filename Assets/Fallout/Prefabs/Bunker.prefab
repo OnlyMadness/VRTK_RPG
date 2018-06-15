@@ -9954,6 +9954,8 @@ GameObject:
   - component: {fileID: 33778506755212932}
   - component: {fileID: 23471395772463766}
   - component: {fileID: 65950272587262636}
+  - component: {fileID: 114908025126133896}
+  - component: {fileID: 114553316529628898}
   m_Layer: 0
   m_Name: Door_open
   m_TagString: Untagged
@@ -18215,7 +18217,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1266004385825092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6782713, y: 0.52, z: 2.6627073}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4572403564721426}
@@ -21861,7 +21863,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1720385800720000}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.08264065, z: 0.043}
+  m_LocalPosition: {x: 0, y: 0.08264065, z: 0.058}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4897058768110752}
@@ -22861,8 +22863,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1301978514900298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.779, y: 1.099, z: 2.232}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.779, y: 1.099, z: 2.246}
+  m_LocalScale: {x: 1, y: 1, z: 0.6884636}
   m_Children:
   - {fileID: 4936312708416396}
   - {fileID: 4806284349988344}
@@ -23355,7 +23357,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1037824049779950}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0786, z: 0.043}
+  m_LocalPosition: {x: -0, y: -0.0786, z: 0.058}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4897058768110752}
@@ -61087,6 +61089,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a7a345a74467a448d846f25c577f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OpenDoorFlag: 0
+  CloseDoorFlag: 0
+  Range_UP: 2.8
+  Range_Down: 0.5
 --- !u!114 &114313280682737260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -61137,7 +61143,7 @@ MonoBehaviour:
   interactWithoutGrab: 1
   connectedTo: {fileID: 0}
   direction: 0
-  activationDistance: 0.016405564
+  activationDistance: 0.021105334
   buttonStrength: 5
   events:
     OnPush:
@@ -61145,6 +61151,45 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 114017619144793850}
           m_MethodName: CloseDoor
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+--- !u!114 &114553316529628898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1720385800720000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd828872d92c3a94090d23b7b719f1e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultEvents:
+    OnValueChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: VRTK.VRTK_Control+ValueChangedEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  interactWithoutGrab: 0
+  connectedTo: {fileID: 0}
+  direction: 0
+  activationDistance: 0.021105334
+  buttonStrength: 5
+  events:
+    OnPush:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114017619144793850}
+          m_MethodName: OpenDoor
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -61206,7 +61251,7 @@ MonoBehaviour:
   interactWithoutGrab: 1
   connectedTo: {fileID: 0}
   direction: 0
-  activationDistance: 0.15602574
+  activationDistance: 0.15602562
   buttonStrength: 5
   events:
     OnPush:
@@ -61234,7 +61279,7 @@ MonoBehaviour:
   interactWithoutGrab: 1
   connectedTo: {fileID: 0}
   direction: 0
-  activationDistance: 0.007885628
+  activationDistance: 0.007885799
   buttonStrength: 5
   events:
     OnPush:
@@ -61248,6 +61293,36 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1037824049779950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableWhenIdle: 1
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  allowedTouchControllers: 0
+  ignoredColliders: []
+  isGrabbable: 0
+  holdButtonToGrab: 1
+  stayGrabbedOnTeleport: 1
+  validDrop: 1
+  grabOverrideButton: 0
+  allowedGrabControllers: 0
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 0}
+  isUsable: 0
+  holdButtonToUse: 1
+  useOnlyIfGrabbed: 0
+  pointerActivatesUseAction: 0
+  useOverrideButton: 0
+  allowedUseControllers: 0
+  usingState: 0
+--- !u!114 &114908025126133896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1720385800720000}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
