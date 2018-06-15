@@ -3,6 +3,7 @@
     using UnityEngine;
 
     public class Whirlygig : VRTK_InteractableObject
+ 
     {
         float spinSpeed = 0f;
         Transform rotator;

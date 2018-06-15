@@ -7,6 +7,9 @@ TagManager:
   - ExcludeTeleport
   - Zombi_Head
   - GameControll
+  - Zombi_Body
+  - Zombi_Limbs
+  - InfoCanvas
   layers:
   - Default
   - TransparentFX
