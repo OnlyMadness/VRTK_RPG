@@ -11,6 +11,8 @@ TagManager:
   - Zombi_Limbs
   - InfoCanvas
   - Bullet_gun
+  - PipMain
+  - PipChar
   layers:
   - Default
   - TransparentFX

@@ -16,4 +16,24 @@ public class Pip_Boy : MonoBehaviour {
     {
         Player.damage++;
     }
+
+    public GameObject MainCan;
+    public GameObject CharCan;
+
+   
+
+    public void MainCanvas()
+    {
+        //GameObject.FindGameObjectWithTag("PipMain").SetActive(true);
+        //GameObject.FindGameObjectWithTag("PipChar").SetActive(false);
+        MainCan.SetActive(true);
+        CharCan.SetActive(false);
+    }
+    public void CharCanvas()
+    {
+        //GameObject.FindGameObjectWithTag("PipMain").SetActive(false);
+        //GameObject.FindGameObjectWithTag("PipChar").SetActive(true);
+        MainCan.SetActive(false);
+        CharCan.SetActive(true);
+    }
 }
