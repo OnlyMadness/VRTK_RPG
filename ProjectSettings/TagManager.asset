@@ -13,6 +13,11 @@ TagManager:
   - Bullet_gun
   - PipMain
   - PipChar
+  - Limbs
+  - Head
+  - Arm
+  - Leg
+  - Torso
   layers:
   - Default
   - TransparentFX

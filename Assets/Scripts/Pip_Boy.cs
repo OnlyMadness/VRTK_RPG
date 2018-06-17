@@ -1,26 +1,64 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pip_Boy : MonoBehaviour {
 
-	public void Up_Max_Life()
+	public void UpAgility()
     {
         Player.Max_Life++;
     }
-    public void Up_accuracy()
+    public void UpAccuracy()
     {
         Player.accuracy++;
     }
-    public void Up_Damage()
+    public void UpStrange()
     {
         Player.damage++;
     }
-
+    public void UpMaxLife()
+    {
+        Player.damage++;
+    }
+    public void UseHealth()
+    {
+        Player.Life++;
+    }
+    public void Reload_Weapon()
+    {
+      
+    }
     public GameObject MainCan;
     public GameObject CharCan;
 
-   
+    public GameObject Agility_Text;
+    public GameObject MaxLife_Text;
+    public GameObject Accuracy_Text;
+    public GameObject Strange_Text;
+    public GameObject Point_Text;
+
+    public GameObject Life_Text;
+    public GameObject Lvl_Text;
+    public GameObject Weapon_Text;
+    public GameObject Ammo_Text;
+    public GameObject Count_Health;
+
+    public void Update()
+    {
+        Agility_Text.GetComponent<Text>().text = Player.agility.ToString();
+        MaxLife_Text.GetComponent<Text>().text = Player.Max_Life.ToString();
+        Accuracy_Text.GetComponent<Text>().text = Player.accuracy.ToString();
+        Strange_Text.GetComponent<Text>().text = Player.strange.ToString();
+        Point_Text.GetComponent<Text>().text = Player.points.ToString();
+
+        Life_Text.GetComponent<Text>().text = Player.Life.ToString();
+        Lvl_Text.GetComponent<Text>().text = Player.lvl.ToString();
+        Count_Health.GetComponent<Text>().text = Player.Count_Health.ToString();
+        Weapon_Text.GetComponent<Text>().text = Player.Type_Weapon;
+
+        //Ammo_Text.GetComponent<Text>().text = Player.agility.ToString();
+    }
 
     public void MainCanvas()
     {

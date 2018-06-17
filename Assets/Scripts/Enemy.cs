@@ -5,6 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
     public float range;
     public float distance;
+
+    public int Health;
+
     public GameObject Player_Camera;
     public GameObject Controller_Left;
     public GameObject Controller_Right;
@@ -53,17 +56,24 @@ public class Enemy : MonoBehaviour {
     public void Zombie_Dead()
     {
         Destroy(gameObject);
+        Win = true;
+        Player.Battle = false;
     }
 
     public void Zombie_Attack()
     {
-        Player.Stroke_player = true;
-        gameObject.GetComponent<Animator>().SetBool("Attack", false);
+        Player.Life--;
+        if (Player.Life <= 0)
+            Debug.Log("GameOver");
+        else
+        {
+            Player.Stroke_player = true;
+            gameObject.GetComponent<Animator>().SetBool("Attack", false);
+        }
     }
     public void Zombie_Hit()
     {
-        Player.Stroke_player = true;
-        gameObject.GetComponent<Animator>().SetBool("Hit", false);
         Player.Stroke_player = false;
+        gameObject.GetComponent<Animator>().SetBool("Hit", false);
     }
 }
