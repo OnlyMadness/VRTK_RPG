@@ -7,24 +7,28 @@ public class Pip_Boy : MonoBehaviour {
 
 	public void UpAgility()
     {
-        Player.Max_Life++;
+        Player.agility++;
+        Player.points--;
     }
     public void UpAccuracy()
     {
         Player.accuracy++;
+        Player.points--;
     }
     public void UpStrange()
     {
-        Player.damage++;
+        Player.strange++;
+        Player.points--;
     }
-    public void UpMaxLife()
-    {
-        Player.damage++;
-    }
+    //public void UpMaxLife()
+    //{
+    //    Player.damage++;
+    //}
     public void UseHealth()
     {
         Player.Life++;
     }
+
     public void Reload_Weapon()
     {
       
@@ -44,8 +48,15 @@ public class Pip_Boy : MonoBehaviour {
     public GameObject Ammo_Text;
     public GameObject Count_Health;
 
+    public GameObject Up_btn; 
+
     public void Update()
     {
+        if (Player.points > 0)
+            Up_btn.SetActive(true);
+        else
+            Up_btn.SetActive(false);
+
         Agility_Text.GetComponent<Text>().text = Player.agility.ToString();
         MaxLife_Text.GetComponent<Text>().text = Player.Max_Life.ToString();
         Accuracy_Text.GetComponent<Text>().text = Player.accuracy.ToString();

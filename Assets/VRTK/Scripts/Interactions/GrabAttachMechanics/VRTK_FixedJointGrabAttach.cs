@@ -20,7 +20,23 @@ namespace VRTK.GrabAttachMechanics
         {
             givenJoint = obj.AddComponent<FixedJoint>();
             obj.transform.rotation = GameObject.Find("[VRTK][AUTOGEN][RightController][BasePointerRenderer_Origin_Smoothed]").transform.rotation;   // Позиция в руке     
-                                                                                                                                                 
+            //[VRTK] [AUTOGEN] [HeadsetColliderContainer]
+            //if (obj.tag == "health1")
+            //{
+            //    Player.Life += 10;
+            //    Destroy(obj);
+            //}
+            //if (obj.tag == "health2")
+            //{
+            //    Player.Life += 30;
+            //    Destroy(obj);
+            //}
+            //if (obj.tag == "health3")
+            //{
+            //    Player.Life += 50;
+            //    Destroy(obj);
+            //}
+
             obj.transform.Translate(Vector3.down/21);
             givenJoint.breakForce = (grabbedObjectScript.IsDroppable() ? breakForce : Mathf.Infinity);
             base.CreateJoint(obj);

@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour {
     public float distance;
 
     public int Health;
+    public int Damage_enemy;
+    public int agility_enemy;
 
     public GameObject Player_Camera;
     public GameObject Controller_Left;
@@ -39,11 +41,6 @@ public class Enemy : MonoBehaviour {
                 Controller_Left.GetComponent<VRTK.VRTK_ControllerEvents>().enabled = false;
                 gameObject.GetComponent<Animator>().SetBool("Attack", true);
             }
-            if (Win)
-            {
-                Controller_Left.GetComponent<VRTK.VRTK_Pointer>().enabled = true;
-                Player.Battle = false;
-            }
         }
 	}
 
@@ -55,14 +52,16 @@ public class Enemy : MonoBehaviour {
 
     public void Zombie_Dead()
     {
+        Controller_Left.GetComponent<VRTK.VRTK_Pointer>().enabled = true;
         Destroy(gameObject);
-        Win = true;
         Player.Battle = false;
+        Player.lvl++;
+        Player.points+=5;
     }
 
     public void Zombie_Attack()
     {
-        Player.Life--;
+        Player.Life-=Damage_enemy;
         if (Player.Life <= 0)
             Debug.Log("GameOver");
         else

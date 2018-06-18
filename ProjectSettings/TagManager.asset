@@ -18,6 +18,9 @@ TagManager:
   - Arm
   - Leg
   - Torso
+  - health1
+  - health2
+  - health3
   layers:
   - Default
   - TransparentFX
