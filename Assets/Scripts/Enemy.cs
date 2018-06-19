@@ -16,16 +16,30 @@ public class Enemy : MonoBehaviour {
     public static bool Battle;
     public static bool Win;
     public static GameObject Enemy_Dead;
-	// Use this for initialization
-	void Start () {
-        Enemy_Dead = gameObject;
+    private Quaternion newRotation;
+
+    public GameObject Player_Camera_Transform;
+
+    // Use this for initialization
+    void Start () {
+     
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+   
+
         distance = Vector3.Distance(Player_Camera.transform.position, gameObject.transform.position);
         if (distance <= range)
         {
+ 
+            Vector3 targetPostition = new Vector3(Player_Camera.transform.position.x,
+                                        this.transform.position.y,
+                                        Player_Camera.transform.position.z);
+            this.transform.LookAt(targetPostition);
+
+            Enemy_Dead = gameObject;
             gameObject.GetComponent<Animator>().SetBool("Battle",true);
             Controller_Left.GetComponent<VRTK.VRTK_Pointer>().enabled = false;
             Player.Battle = true;
@@ -52,6 +66,7 @@ public class Enemy : MonoBehaviour {
 
     public void Zombie_Dead()
     {
+        Player.Stroke_player = false;
         Controller_Left.GetComponent<VRTK.VRTK_Pointer>().enabled = true;
         Destroy(gameObject);
         Player.Battle = false;

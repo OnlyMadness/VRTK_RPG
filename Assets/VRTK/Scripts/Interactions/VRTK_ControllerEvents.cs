@@ -495,6 +495,14 @@ namespace VRTK
         {
             if (TriggerPressed != null)
             {
+                if(Player.Battle&&Player.Type_Weapon == "Руки"&&Player.Shoot)
+                {
+                    Enemy.Enemy_Dead.GetComponent<Enemy>().Health -= Player.strange;
+                    if (Enemy.Enemy_Dead.GetComponent<Enemy>().Health <= 0)
+                        Enemy.Enemy_Dead.GetComponent<Animator>().SetBool("Death", true);
+                    else
+                        Enemy.Enemy_Dead.GetComponent<Animator>().SetBool("Hit", true);
+                }
                 TriggerPressed(this, e);
             }
         }
@@ -1379,6 +1387,7 @@ namespace VRTK
                     {
                         if (startEvent)
                         {
+                           
                             TriggerClicked += callbackMethod;
                         }
                         else
@@ -1390,6 +1399,7 @@ namespace VRTK
                     {
                         if (startEvent)
                         {
+                           
                             TriggerClicked -= callbackMethod;
                         }
                         else
@@ -1872,6 +1882,7 @@ namespace VRTK
 
             if (triggerClicked)
             {
+    
                 OnTriggerUnclicked(SetControllerEvent(ref triggerClicked, false, 0f));
                 EmitAlias(ButtonAlias.TriggerClick, false, 0f, ref triggerClicked);
             }

@@ -21,6 +21,11 @@ TagManager:
   - health1
   - health2
   - health3
+  - TargetEmeny
+  - DamageEnemy
+  - HealthEnemy
+  - Dodge
+  - cartridges
   layers:
   - Default
   - TransparentFX

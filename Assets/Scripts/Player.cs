@@ -28,6 +28,10 @@ public class Player : MonoBehaviour {
     public static int Count_Health;
     public static string Type_Weapon;
 
+    public static int cartridges;
+
+    public static bool Shoot;
+
     void Start()
     {
         Life = Startlife;

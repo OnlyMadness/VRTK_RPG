@@ -68,7 +68,7 @@ public class Pip_Boy : MonoBehaviour {
         Count_Health.GetComponent<Text>().text = Player.Count_Health.ToString();
         Weapon_Text.GetComponent<Text>().text = Player.Type_Weapon;
 
-        //Ammo_Text.GetComponent<Text>().text = Player.agility.ToString();
+        Ammo_Text.GetComponent<Text>().text = Player.cartridges.ToString();
     }
 
     public void MainCanvas()
