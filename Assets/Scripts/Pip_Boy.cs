@@ -31,7 +31,19 @@ public class Pip_Boy : MonoBehaviour {
 
     public void Reload_Weapon()
     {
-      
+        if (Player.cartridges_pistol < 10)
+        {
+            int count = 10 - Player.cartridges_pistol;
+            if (Player.cartridges >= count)
+            {
+                Player.cartridges_pistol = 10;
+                Player.cartridges = Player.cartridges - count;
+            }
+            else {
+                Player.cartridges_pistol = Player.cartridges_pistol + Player.cartridges;
+                Player.cartridges = 0;
+            }
+        }
     }
     public GameObject MainCan;
     public GameObject CharCan;
@@ -68,7 +80,7 @@ public class Pip_Boy : MonoBehaviour {
         Count_Health.GetComponent<Text>().text = Player.Count_Health.ToString();
         Weapon_Text.GetComponent<Text>().text = Player.Type_Weapon;
 
-        Ammo_Text.GetComponent<Text>().text = Player.cartridges.ToString();
+        Ammo_Text.GetComponent<Text>().text = Player.cartridges_pistol.ToString() +" / "+ Player.cartridges.ToString();
     }
 
     public void MainCanvas()

@@ -21,12 +21,15 @@
 
         private void FireBullet()
         {
-            if (Player.Battle&&Player.Stroke_player&&Player.Shoot){ 
-                GameObject bulletClone = Instantiate(bullet, bullet.transform.position, bullet.transform.rotation) as GameObject;
-                bulletClone.SetActive(true);
-                Rigidbody rb = bulletClone.GetComponent<Rigidbody>();
-                rb.AddForce(-bullet.transform.forward * bulletSpeed);
-                Destroy(bulletClone, bulletLife);        
+            if (Player.cartridges_pistol != 0) {
+                if (Player.Battle && Player.Stroke_player && Player.Shoot) {
+                    GameObject bulletClone = Instantiate(bullet, bullet.transform.position, bullet.transform.rotation) as GameObject;
+                    bulletClone.SetActive(true);
+                    Rigidbody rb = bulletClone.GetComponent<Rigidbody>();
+                    rb.AddForce(-bullet.transform.forward * bulletSpeed);
+                    Destroy(bulletClone, bulletLife);
+                    Player.cartridges_pistol = Player.cartridges_pistol - 1;
+                }
             }
         }
         //protected override void Update()

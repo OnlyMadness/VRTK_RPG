@@ -29,6 +29,7 @@ public class Player : MonoBehaviour {
     public static string Type_Weapon;
 
     public static int cartridges;
+    public static int cartridges_pistol;
 
     public static bool Shoot;
 
