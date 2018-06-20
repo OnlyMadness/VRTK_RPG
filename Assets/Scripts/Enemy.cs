@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour {
     public static GameObject Enemy_Dead;
     private Quaternion newRotation;
 
+    public GameObject GameOver;
     public GameObject Player_Camera_Transform;
 
     // Use this for initialization
@@ -78,7 +79,11 @@ public class Enemy : MonoBehaviour {
     {
         Player.Life-=Damage_enemy;
         if (Player.Life <= 0)
+        {
+            GameOver.SetActive(true);
             Debug.Log("GameOver");
+
+        }
         else
         {
             Player.Stroke_player = true;

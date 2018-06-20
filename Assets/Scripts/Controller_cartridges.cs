@@ -21,7 +21,7 @@
             {
                 if (gameObject.tag == "cartridges")
                 {
-                    Player.cartridges += 10;
+                    Player.cartridges += 4;
                     Destroy(gameObject);
                 }
             }
